@@ -6,7 +6,7 @@
 |---|---|
 | Họ và tên | `Nguyễn Thành Nam` |
 | MSSV (đúng bằng `--student-id` bạn đã chạy) | `2A202602827` |
-| GitHub | `<điền: tên tài khoản>` |
+| GitHub | `https://github.com/Danniel-Jame/K4-Track4-Day12-NguyenThanhNam-2A202602827` |
 | Seed chia dữ liệu / seed mô hình (xem `evidence/closedloop.json`, mục `student`) | `2901/8205` |
 | Số seed huấn luyện bạn dùng (`--seeds`) | `3` |
 
@@ -24,7 +24,7 @@
 
 ## Câu 1 · Dữ liệu
 
-Trong Bước 0, dữ liệu gốc có 9,993 quỹ đạo với 992,679 dòng. Em phát hiện cột `Acc_LV` (gia tốc xe dẫn) có hệ số tương quan với đạo hàm tốc độ $d(\text{Speed\_LV})/dt$ gần như bằng 0 ($0.0454$), tức là số liệu cột này bị sai lệch nặng. Trong khi đó, gia tốc xe sau có tương quan rất cao ($0.9291$), nên em thay gia tốc xe dẫn bằng đạo hàm đã làm mượt của `Speed_LV`.
+Trong Bước 0, dữ liệu gốc có 9,993 quỹ đạo với 992,679 dòng. Em phát hiện cột `Acc_LV` (gia tốc xe dẫn) có hệ số tương quan với đạo hàm tốc độ gần như bằng 0 ($0.0454$), tức là số liệu cột này bị sai lệch nặng. Trong khi đó, gia tốc xe sau có tương quan rất cao ($0.9291$), nên em thay gia tốc xe dẫn bằng đạo hàm đã làm mượt của `Speed_LV`.
 
 Tập dữ liệu có 383 quỹ đạo bị trùng lặp hoàn toàn và đã bị loại bỏ, còn lại 9,610 quỹ đạo sạch. Việc chia train/test bắt buộc phải chia theo từng quỹ đạo thay vì chia theo khung hình (frame), vì các khung hình kề nhau trong cùng một chuyến đi có tính tương quan rất cao; nếu chia ngẫu nhiên theo khung hình sẽ gây rò rỉ dữ liệu (data leakage) giữa tập train và test.
 
